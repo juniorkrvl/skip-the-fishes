@@ -4,7 +4,7 @@ This is a project for VanHack's Hackaton. The description of the challenge was f
 
 http://frontend.skip.vdjuniorc.com.s3-website-us-west-2.amazonaws.com/
 
-![Skip the Fishes](doc/home.png)
+![Skip the Fishes](doc/home2.png)
 
 # Infrastructure
 
