@@ -7,12 +7,12 @@ def get_restaurants():
     with open('mock/restaurants.json', 'r') as restaurants:
         return json.load(restaurants)
 
-def get_restaurant(id):
+def get_restaurant(res_id):
     rest_list = []
     with open('mock/restaurants.json', 'r') as restaurants:
         rest_list = json.load(restaurants)
-    
-    restaurant = [rest for rest in rest_list['restaurants'] if rest['restaurant']['id'] == str(id)]
+
+    restaurant = [rest for rest in rest_list['restaurants'] if rest['restaurant']['id'] == str(res_id)]
     if len(restaurant) == 0:
         return { "code": 13223, "messsage": "Restaurant doesn't exist"  }
     else:
