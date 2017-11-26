@@ -4,7 +4,7 @@ This is a project for VanHack's Hackaton. The description of the challenge was f
 
 This project contains a mini full stack food delivery website focused on the premises above. The architecture blueprint that I tought was:
 
-![AWS Infrastructure](file://infrastructure/infra.png)
+![AWS Infrastructure](infrastructure/infra.png)
 
 # Frontend
 
