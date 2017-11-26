@@ -8,7 +8,7 @@ http://frontend.skip.vdjuniorc.com.s3-website-us-west-2.amazonaws.com/
 
 # Infrastructure
 
-This project contains a mini full stack food delivery website focused on the premises above. The architecture blueprint that I tought was:
+This project contains a mini fullstack food delivery website focused on the specifications above. The architecture blueprint that I thought:
 
 ![AWS Infrastructure](doc/infra.png)
 
@@ -55,8 +55,10 @@ And if you have updated on a frontend or backend project, you can just run the *
 
 # Frontend
 
-The front-end was developed in Angular 4 using Bootstrap as CSS framework. This was a easy one and this guy just make some calls to our backend rest API
+I chose Angular 4 for Frontend specially because I was afraid that something went wrong, compromising all the project, since I've not made complex projects with React.js yet. The reason they are alike just shows me that it's easier to learn too and I would love it =D
+
+ The front-end was developed using Bootstrap as CSS framework and some mock images from internet. This was easy and it just make some calls to our backend REST API.
 
 # Backend
 
-The backend was developed using Flask and Zappa to deploy into a serverless architecture. This backend has it's own mock methods to return food and restaurants data.
+The backend was developed using Flask and Zappa to deploy into a serverless architecture. This backend has it's own mock methods to return food and restaurants data (extracted from zomato API).
