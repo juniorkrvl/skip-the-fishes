@@ -14,15 +14,15 @@ def restaurants():
     results = zomato_api.get_restaurants()
     return jsonify(results)
 
-@app.route('/restaurant/<id>')
+@app.route('/restaurant/<res_id>')
 def restaurant(res_id):
-    results = zomato_api.get_restaurant(id)
+    results = zomato_api.get_restaurant(res_id)
     return jsonify(results)
 
-@app.route('/restaurant/<id>/meals')
+@app.route('/restaurant/<meals_id>/meals')
 def meals(meals_id):
     print id
-    meals = zomato_api.get_meals(id)
+    meals = zomato_api.get_meals(meals_id)
     return jsonify(meals)
 
 # We only need this for local development.

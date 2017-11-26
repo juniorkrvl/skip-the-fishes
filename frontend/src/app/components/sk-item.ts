@@ -11,7 +11,8 @@ import { Component, Input } from '@angular/core';
         <a *ngIf="!meal" [routerLink]="[ '/restaurant', id ]" class="btn btn-danger">See Menu</a>
         <div id="order-group" *ngIf="meal" class="row" style="width: 90%; padding: 10px;">
           <div class="col-md-4"><input id="qtd-input" class="form-control" type="text" value="0"></div>
-          <div class="col-md-8"><a href="javascript:void(0)" class="btn btn-danger" style="right: 0;">Order</a></div>
+          <div class="col-md-8"><a href="javascript:void(0)" class="btn btn-danger"
+            (click)="order()" style="right: 0;">Order</a></div>
         </div>
 
       </div>
@@ -25,5 +26,9 @@ export class ItemComponent {
   @Input() name: string
   @Input() description: string
   @Input() meal: false
+
+  order() {
+    alert('Sorry, there was no time to implement cart :(')
+  }
 
 }

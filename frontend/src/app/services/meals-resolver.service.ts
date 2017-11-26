@@ -15,7 +15,6 @@ export class MealsResolver implements Resolve<any> {
   resolve(route: ActivatedRouteSnapshot) {
     const restaurantId = Number(route.paramMap.get('id'))
     return this.restaurantService.getMeals(restaurantId).map(meals => {
-      console.log(meals)
       return meals
     }).catch((err) => {
       return Observable.throw(err.json())

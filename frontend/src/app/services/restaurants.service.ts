@@ -17,17 +17,14 @@ export class RestaurantService {
     }
 
     getRestaurant(res_id: Number) {
-      console.log('rest' + String(res_id))
       return this.http.get(
         environment.backendUrl + environment.restaurant(res_id))
         .map((response) => {
-          console.log(response)
           return response.json()
         })
     }
 
     getMeals(res_id: Number) {
-      console.log('meals' + String(res_id))
       return this.http.get(
         environment.backendUrl + environment.meals(res_id))
         .map((response) => response.json())
