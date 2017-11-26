@@ -8,6 +8,7 @@ pip install -r requirements.txt
 echo "Uploading backend"
 zappa_endpoint=$(zappa deploy dev | egrep -o 'https?://[^ ]+')
 echo $zappa_endpoint
+echo $zappa_endpoint >> ../infrastructure/last_endpoint.txt
 
 deactivate
 cd ../infrastructure
@@ -15,17 +16,13 @@ cd ../infrastructure
 # Create Frontend Environment
 echo "Warm up and dependencies check"
 cd ../frontend && npm install
-awk '{gsub(/\$ApiGatewayUrl/,backendUrl);}1' backendUrl="$zappa_endpoint" src/environments/environment.prod.ts > src/environments/environment.prod.temp.ts
-mv src/environments/environment.prod.temp.ts src/environments/temp.ts
-mv src/environments/environment.prod.temp.ts src/environments/environment.prod.ts
+awk '{gsub(/\$ApiGatewayUrl/,backendUrl);}1' backendUrl="$zappa_endpoint" src/environments/environment.temp.ts > src/environments/environment.prod.ts
 
 echo "Building"
 npm run build
 
 echo "Restarting Env Config"
-mv src/environments/temp.ts src/environments/environment.prod.ts
-rm src/environments/environment.prod.temp.ts
-rm src/environments/temp.ts
+# mv src/environments/environment.temp.ts src/environments/environment.prod.ts
 
 echo "Creating environment"
 cd ../infrastructure

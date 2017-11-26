@@ -21,7 +21,7 @@ npm run build
 echo "Creating environment"
 cd ../infrastructure
 aws cloudformation update-stack --stack-name skip-challenge-frontend --template-body file://cloudformation/frontend.json
-aws cloudformation wait stack-create-complete --stack-name skip-challenge-frontend
+aws cloudformation wait stack-update-complete --stack-name skip-challenge-frontend
 
 echo "Uploading Website"
 cd ../frontend

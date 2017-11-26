@@ -36,6 +36,25 @@ div.jumbotron {
   border: none;
 }
 
+#logo {
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+#qtd-input {
+  width: 50px;
+}
+
+#order-group {
+  bottom: 5%;
+  position: absolute;
+}
+
+.btn-cart {
+  background-color: transparent;
+  color: #FFF;
+}
+
 /* END COVER COMPONENT */
 
 /* CARDS */

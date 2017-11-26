@@ -7,11 +7,13 @@ import { NavComponent } from './components/sk-nav';
 import { CoverMainComponent } from './components/sk-cover-main';
 import { ItemComponent } from './components/sk-item';
 import { MainPageComponent } from './pages/sk-main-page';
-import { DetailPageComponent } from './pages/sk-detail-page';
 import { CoverRestaurantComponent } from './components/sk-cover-restaurant';
 import { appRouter } from './app.routing';
 import { RestaurantService } from 'app/services/restaurants.service';
 import { HttpModule } from '@angular/http';
+import { MealsResolver } from 'app/services/meals-resolver.service';
+import { RestaurantResolver } from './services/restaurant-resolver.service';
+import { RestaurantPageComponent } from './pages/sk-restaurant-page';
 
 @NgModule({
   imports: [
@@ -26,10 +28,12 @@ import { HttpModule } from '@angular/http';
     CoverRestaurantComponent,
     ItemComponent,
     MainPageComponent,
-    DetailPageComponent
+    RestaurantPageComponent
   ],
   providers: [
-    RestaurantService
+    RestaurantService,
+    RestaurantResolver,
+    MealsResolver
   ],
   bootstrap: [AppComponent]
 })

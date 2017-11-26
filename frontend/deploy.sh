@@ -1,5 +1,14 @@
 #!/bin/sh
 
+echo "Getting the endpoint url"
+filename="../infrastructure/last_endpoint.txt"
+while read -r line
+do
+    name="$line"
+    echo "Name read from file - $name"
+done < "$filename"
+awk '{gsub(/\$ApiGatewayUrl/,backendUrl);}1' backendUrl="$name" src/environments/environment.temp.ts > src/environments/environment.prod.ts
+
 echo "Building"
 npm run build
 

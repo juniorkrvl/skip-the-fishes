@@ -5,8 +5,6 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'http://127.0.0.1:5000',
-  restaurants: '/restaurants',
-  restaurant: (id) => '/restaurant/' + String(id),
-  meals: (id) => '/restaurant/' + String(id) + '/meals'
+  backendUrl: '$ApiGatewayUrl',
+  restaurants: '/restaurants'
 };

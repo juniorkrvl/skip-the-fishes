@@ -30,6 +30,7 @@ export class CoverMainComponent {
         console.log(result.restaurants)
         const items = result.restaurants.map(item => {
           return {
+            id: item.restaurant.id,
             name: item.restaurant.name,
             description: item.restaurant.cuisines,
             image:
