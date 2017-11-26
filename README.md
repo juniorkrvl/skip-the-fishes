@@ -61,3 +61,7 @@ I chose Angular 4 for Frontend specially because I was afraid that something wen
 # Backend
 
 The backend was developed using Flask and Zappa to deploy into a serverless architecture. This backend has it's own mock methods to return food and restaurants data (extracted from zomato API).
+
+## This challenge really worth it
+
+Thank you guys! =)
