@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Create Backend Environment
 echo "Warm up and dependencies check"
 cd ../backend && . venv/bin/activate
