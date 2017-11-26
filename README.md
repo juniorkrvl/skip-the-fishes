@@ -4,17 +4,17 @@ This is a project for VanHack's Hackaton. The description of the challenge was f
 
 http://frontend.skip.vdjuniorc.com.s3-website-us-west-2.amazonaws.com/
 
-![Skip the Fishes](home.png)
+![Skip the Fishes](doc/home.png)
 
 # Infrastructure
 
 This project contains a mini full stack food delivery website focused on the premises above. The architecture blueprint that I tought was:
 
-![AWS Infrastructure](infrastructure/infra.png)
+![AWS Infrastructure](doc/infra.png)
 
 but, because of a time limit I have implemented just a few functional parts of the solution:
 
-![AWS Infrastructure Challenge](infrastructure/infra2.png)
+![AWS Infrastructure Challenge](doc/infra2.png)
 
 By hosting a website statically you don't have to concern about availability, because S3 service offer that for us. But, what about the backend? If your solution isn't well configured you can suffer downtime on backend, for that reason I choose the framework Zappa that exports a Flask / Django app into a serverless architecture. By doing this you don't have any problem with your backend availability. The last but not least, the database I choose for high scalability is a noSQL database, because it's not going to suffer with a increased number of access like a relational database would.
 

@@ -1,4 +1,0 @@
-https://qao08rp1yc.execute-api.us-west-2.amazonaws.com/dev
-https://bat0x56k9j.execute-api.us-west-2.amazonaws.com/dev
-https://8hjx56v1kh.execute-api.us-west-2.amazonaws.com/dev
-https://9x1k3g6yvf.execute-api.us-west-2.amazonaws.com/dev
