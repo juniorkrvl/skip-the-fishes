@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
     </sk-item>
     <div *ngIf="!hasItems()" style="text-align:center;">
     <br/><br/>
-      <h4>Hey! Are you hungry? Search but skip the fishes =D</h4><br/> 
+      <h4>Hey! Are you hungry? Search but skip the fishes =D</h4><br/>
     </div>
   `,
   styleUrls: ['styles.css']

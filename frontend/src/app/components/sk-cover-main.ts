@@ -1,5 +1,5 @@
-import { Component, Output, EventEmitter, Inject } from '@angular/core';
 import { RestaurantService } from '../services/restaurants.service';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sk-cover-main',
@@ -23,11 +23,9 @@ export class CoverMainComponent {
   constructor(private restaurantService: RestaurantService) {}
 
   search(value) {
-    console.log(value)
     this.restaurantService.getRestaurants()
     .subscribe((result) => {
       if (result) {
-        console.log(result.restaurants)
         const items = result.restaurants.map(item => {
           return {
             id: item.restaurant.id,

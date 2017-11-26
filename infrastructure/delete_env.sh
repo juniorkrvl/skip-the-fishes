@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo "Undeploy zappa app"
 cd ../backend && . venv/bin/activate
 zappa  undeploy dev

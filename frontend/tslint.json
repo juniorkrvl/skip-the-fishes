@@ -111,12 +111,12 @@
       true,
       "attribute",
       "app",
-      "camelCase"
+      "kebab-case"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "sk",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

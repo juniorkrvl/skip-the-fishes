@@ -1,4 +1,5 @@
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,7 +11,7 @@ import { MainPageComponent } from './pages/sk-main-page';
 import { CoverRestaurantComponent } from './components/sk-cover-restaurant';
 import { appRouter } from './app.routing';
 import { RestaurantService } from 'app/services/restaurants.service';
-import { HttpModule } from '@angular/http';
+
 import { MealsResolver } from 'app/services/meals-resolver.service';
 import { RestaurantResolver } from './services/restaurant-resolver.service';
 import { RestaurantPageComponent } from './pages/sk-restaurant-page';
