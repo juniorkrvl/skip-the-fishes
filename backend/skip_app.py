@@ -15,12 +15,12 @@ def restaurants():
     return jsonify(results)
 
 @app.route('/restaurant/<id>')
-def restaurant(id):
+def restaurant(res_id):
     results = zomato_api.get_restaurant(id)
     return jsonify(results)
 
 @app.route('/restaurant/<id>/meals')
-def meals(id):
+def meals(meals_id):
     print id
     meals = zomato_api.get_meals(id)
     return jsonify(meals)
