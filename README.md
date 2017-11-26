@@ -12,13 +12,13 @@ This project contains a mini fullstack food delivery website focused on the spec
 
 ![AWS Infrastructure](doc/infra.png)
 
-but, because of a time limit I have implemented just a few functional parts of the solution:
+However, because of a time limit I have implemented just a few functional parts of the solution:
 
 ![AWS Infrastructure Challenge](doc/infra2.png)
 
-By hosting a website statically you don't have to concern about availability, because S3 service offer that for us. But, what about the backend? If your solution isn't well configured you can suffer downtime on backend, for that reason I choose the framework Zappa that exports a Flask / Django app into a serverless architecture. By doing this you don't have any problem with your backend availability. The last but not least, the database I choose for high scalability is a noSQL database, because it's not going to suffer with a increased number of access like a relational database would.
+By hosting a website statically you don't have to concern about availability, because S3 service offer that for us. **Still, what about the backend?** If your solution isn't well configured you can suffer downtime on backend, for that reason I chose the framework Zappa that exports a Flask / Django app into a serverless architecture. By doing this you don't have any problem with your backend availability. The last but not least, the database I pick for high scalability was a noSQL database, because it's not going to suffer with a increased number of access like a relational database would.
 
-I implemented a mock database and a static web site hosting on S3 but the concept was this.
+I implemented a mock database and a static web site hosting on S3 but the whole concept was this.
 
 # DevOps
 
@@ -41,8 +41,7 @@ cd infrastructure
 
 This script creates backend stack (API Gateway and Lambda functions) and Frontend (Static Website hosting Bucket) using zappa and cloudformation.
 
-With this, at the end of the process you should can access the link on you AWS:
-http://frontend.skip.vdjuniorc.com.s3-website-us-west-2.amazonaws.com/
+With this, at the end of the process you should get access the link on your AWS account: http://frontend.skip.vdjuniorc.com.s3-website-us-west-2.amazonaws.com/
 
 To delete the environment stack, just run:
 
