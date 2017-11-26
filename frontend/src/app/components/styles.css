@@ -1,0 +1,56 @@
+/* NAV COMPONENT */
+
+header {
+  padding: 10px;
+  background-color: #2D2D2D;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #dc3545;
+}
+
+a, a:hover {
+  color: #FFF;
+}
+
+/* END NAV COMPONENT */
+
+/* COVER COMPONENT */
+div.jumbotron {
+  background: linear-gradient(
+    rgba(20,20,20, .5),
+    rgba(20,20,20, .5)),
+    url(https://images.unsplash.com/photo-1503767849114-976b67568b02?auto=format&fit=crop&w=750&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
+  background-size: 100%;
+  border-radius: 0px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #FFF;
+  background-position: center;
+  text-align:center;
+}
+
+#search {
+  width: 50%;
+  border: none;
+}
+
+/* END COVER COMPONENT */
+
+/* CARDS */
+
+.card-body {
+  height: 200px;
+}
+
+.card-body a.btn {
+  bottom: 5%;
+  position: absolute;
+}
+
+/* sk-item > .card-body {
+  height: 180px;
+} */
+
+/* END CARDS */

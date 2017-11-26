@@ -1,0 +1,42 @@
+{
+"AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Cloudformation to create and configure SkiptheFishes Frontend",
+    "Metadata": {
+    },
+    "Parameters": {
+    },
+    "Mappings": {
+    },
+    "Conditions": {
+    },
+    "Resources": {
+        "skipFrontendBucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "AccessControl": "PublicRead",
+                "BucketName": "frontend.skip.vdjuniorc.com",
+                "WebsiteConfiguration" : {
+                    "IndexDocument" : "index.html",
+                    "ErrorDocument" : "error.html"
+                },
+                "Tags": [{
+                    "Key": "Name",
+                    "Value": "SkipTheFishes Frontend Bucket"
+                }] 
+            }
+        }
+        
+    },
+    "Outputs": {
+        "WebsiteURL" : {
+            "Value" : { "Fn::GetAtt" : [ "skipFrontendBucket", "WebsiteURL" ] },
+            "Description" : "URL for website hosted on S3"
+         },
+         "S3BucketSecureURL" : {
+            "Value" : { "Fn::Join" : [
+               "", [ "https://", { "Fn::GetAtt" : [ "skipFrontendBucket", "DomainName" ] } ]
+            ] },
+            "Description" : "Name of S3 bucket to hold website content"
+         }
+    }
+}

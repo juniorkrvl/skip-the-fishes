@@ -1,0 +1,125 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+        "Description": "Create environment for gourhack website",
+        "Metadata": {
+        },
+        "Parameters": {
+            "LambdaExecuteRoleParameter": {
+                "Description": "LambdaExecuteRole",
+                "Type": "String",
+                "Default": "arn:aws:iam::602300322755:role/backend-dev-ZappaLambdaExecutionRole"
+            }
+        },
+        "Mappings": {
+        },
+        "Conditions": {
+        },
+        "Resources": {
+            "skipLambda": {
+              "Type": "AWS::Lambda::Function",
+              "Properties": {
+                "Code": {
+                    "S3Bucket": "backend.skip.vdjuniorc.com",
+                    "S3Key": "zappa-package.zip"
+                },
+                "Handler": "handler.lambda_handler",
+                "Role": {"Ref": "LambdaExecuteRoleParameter"},
+                "Runtime": "python2.7",
+                "FunctionName": "skip-challenge-lambda",
+                "Timeout": 10
+                },
+                "Description": "Lambda for skip-the-fishes backend"
+            },
+            "ANY0": {
+                "Type": "AWS::ApiGateway::Method",
+                "Properties": {
+                  "ApiKeyRequired": false,
+                  "AuthorizationType": "NONE",
+                  "HttpMethod": "ANY",
+                  "Integration": {
+                    "CacheKeyParameters": [],
+                    "CacheNamespace": "none",
+                    "Credentials": {"Ref": "LambdaExecuteRoleParameter"},
+                    "IntegrationHttpMethod": "POST",
+                    "IntegrationResponses": [],
+                    "PassthroughBehavior": "NEVER",
+                    "Type": "AWS_PROXY",
+                    "Uri":
+                    {"Fn::Join" : ["",
+                        [ 
+                            "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/", 
+                            { "Fn::GetAtt" : [ "skipLambda", "Arn" ]},
+                            "/invocations" 
+                        ] 
+                    ]}
+                  },
+                  "MethodResponses": [],
+                  "ResourceId": { "Fn::GetAtt": ["skipApi", "RootResourceId"] },
+                  "RestApiId": { "Ref": "skipApi" }
+                }
+            },         
+            "ANY1": {
+                "Properties": {
+                  "ApiKeyRequired": false,
+                  "AuthorizationType": "NONE",
+                  "HttpMethod": "ANY",
+                  "Integration": {
+                    "CacheKeyParameters": [],
+                    "CacheNamespace": "none",
+                    "Credentials": {"Ref": "LambdaExecuteRoleParameter"},
+                    "IntegrationHttpMethod": "POST",
+                    "IntegrationResponses": [],
+                    "PassthroughBehavior": "NEVER",
+                    "Type": "AWS_PROXY",
+                    "Uri":
+                    {"Fn::Join" : ["",
+                        [ 
+                            "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/", 
+                            { "Fn::GetAtt" : [ "skipLambda", "Arn" ]},
+                            "/invocations" 
+                        ] 
+                    ]}
+                  },
+                  "MethodResponses": [],
+                  "ResourceId": { "Ref": "ResourceAnyPathSlashed" },
+                  "RestApiId": { "Ref": "skipApi" }
+                },
+                "Type": "AWS::ApiGateway::Method"
+            },
+            "skipApi": {
+                "Type": "AWS::ApiGateway::RestApi",
+                "Properties": {
+                  "Description": "API Gateway to serve SkipChallenge.",
+                  "Name": "skip-challenge-dev"
+                }
+            },
+            "ResourceAnyPathSlashed": {
+                "Type": "AWS::ApiGateway::Resource",
+                "Properties": {
+                    "ParentId": { "Fn::GetAtt": ["skipApi", "RootResourceId"] },
+                    "PathPart": "{proxy+}",
+                    "RestApiId": { "Ref": "skipApi" }
+                }
+            }
+        },
+        "Outputs": {
+            "APIGatewayURL" : {
+              "Value" : 
+                { 
+                    "Fn::GetAtt" : [ "skipApi", "RootResourceId" ]
+                }
+            },
+            "APIGatewayResource" : {
+                "Value" : 
+                { 
+                    "Ref" : "ResourceAnyPathSlashed"
+                }
+            }, 
+            "APIGatewayMethod" : {
+                "Value" : 
+                { 
+                    "Ref" : "ANY1"
+                }
+            }
+        }
+    }
