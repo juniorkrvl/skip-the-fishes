@@ -6,5 +6,7 @@
 export const environment = {
   production: false,
   backendUrl: '$ApiGatewayUrl',
-  restaurants: '/restaurants'
+  restaurants: '/restaurants',
+  restaurant: (id) => '/restaurant/' + String(id),
+  meals: (id) => '/restaurant/' + String(id) + '/meals'
 };
