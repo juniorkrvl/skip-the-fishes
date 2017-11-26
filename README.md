@@ -20,9 +20,42 @@ By hosting a website statically you don't have to concern about availability, be
 
 I implemented a mock database and a static web site hosting on S3 but the concept was this.
 
+# DevOps
+
+For creating a environment from scratch, just run the scripts inside the folder **infrastructure**:
+
+The fist step is configure the AWS credentials on your machine, just type:
+
+```sh
+aws configure
+```
+
+and put your dev credentials.
+
+Creating environment stack:
+
+```sh
+cd infrastructure
+./create_env.sh
+```
+
+This script creates backend stack (API Gateway and Lambda functions) and Frontend (Static Website hosting Bucket) using zappa and cloudformation.
+
+With this, at the end of the process you should can access the link on you AWS:
+http://frontend.skip.vdjuniorc.com.s3-website-us-west-2.amazonaws.com/
+
+To delete the environment stack, just run:
+
+```sh
+cd infrastructure
+./create_env.sh
+```
+
+And if you have updated on a frontend or backend project, you can just run the **deploy.sh** inside frontend and backend folders respectively.
+
 # Frontend
 
-The front-end was developed in Angular 4 using Bootstrap as CSS framework. This was a easy one and this guy just make some calls to out backend rest API
+The front-end was developed in Angular 4 using Bootstrap as CSS framework. This was a easy one and this guy just make some calls to our backend rest API
 
 # Backend
 
