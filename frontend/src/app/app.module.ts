@@ -19,7 +19,7 @@ import { RestaurantPageComponent } from './pages/sk-restaurant-page';
 @NgModule({
   imports: [
     HttpModule,
-    RouterModule.forRoot(appRouter),
+    RouterModule.forRoot(appRouter, { useHash: true }),
     BrowserModule
   ],
   declarations: [
