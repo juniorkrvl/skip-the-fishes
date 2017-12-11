@@ -2,7 +2,7 @@
 
 **github**: [https://github.com/juniorkrvl/skip-the-fishes](https://github.com/juniorkrvl/skip-the-fishes)
 
-This is a project for VanHack's Hackaton. The description of the challenge was focused on high performance and high availability, so I tought about a solution high scalable with API Gateway and Lambda creating a serverless architecture and a static website hosted on AWS S3 distributed on cloudfront. By the way, I hate fish :(
+This is a project for VanHack's SkipTheDishes challenge. The description of the challenge was focused on high performance and high availability, so I tought about a solution high scalable with API Gateway and Lambda creating a serverless architecture and a static website hosted on AWS S3 distributed on cloudfront. By the way, I hate fish :(
 
 http://frontend.skip.vdjuniorc.com.s3-website-us-west-2.amazonaws.com/
 
@@ -18,7 +18,7 @@ However, because of a time limit I have implemented just a few functional parts 
 
 ![AWS Infrastructure Challenge](doc/infra2.png)
 
-By hosting a website statically you don't have to concern about availability, because S3 service offer that for us. **Still, what about the backend?** If your solution isn't well configured you can suffer downtime on backend, for that reason I chose the framework Zappa that exports a Flask / Django app into a serverless architecture. By doing this you don't have any problem with your backend availability. The last but not least, the database I pick for high scalability was a noSQL database, because it's not going to suffer with a increased number of access like a relational database would.
+By hosting a website statically you don't have to concern about availability, because S3 service offer that for us. **Still, what about the backend?** If your solution isn't well configured you can suffer downtime on backend, for that reason I chose the framework Zappa that exports a Flask / Django app into a serverless architecture. By doing this you don't have any problem with your backend availability. The last but not least, the database I picked for high scalability was a noSQL database, because it's not going to suffer with a increased number of access like a relational database would.
 
 I implemented a mock database and a static web site hosting on S3 but the whole concept was this.
 
