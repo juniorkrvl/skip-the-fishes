@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'https://1n6ha9u5pd.execute-api.us-west-2.amazonaws.com/dev',
+  backendUrl: 'https://rh7d0wwkw3.execute-api.us-west-2.amazonaws.com/dev',
   restaurants: '/restaurants',
   restaurant: (id) => '/restaurant/' + String(id),
   meals: (id) => '/restaurant/' + String(id) + '/meals'
